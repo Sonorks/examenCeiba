@@ -139,26 +139,40 @@ public class BibliotecarioTest {
 	
 	@SuppressWarnings("deprecation")
 	@Test
-	public void calcularFechaEntregaMaximaTest() {
+	public void calcularFechaEntregaMaxima1Test() {
 		
 		//arrange 
 		RepositorioPrestamo repositorioPrestamo = mock(RepositorioPrestamo.class);
 		RepositorioLibro repositorioLibro = mock(RepositorioLibro.class);
 		
 		Bibliotecario bibliotecario = new Bibliotecario(repositorioLibro, repositorioPrestamo);
+		Calendar calendar = Calendar.getInstance();
 		
 		//act
-		Date fechaEntregaMaxima = bibliotecario.calcularFechaEntregaMaxima();
+		calendar.set(2018, 3, 1);
+		Date fechaEntregaMaxima = bibliotecario.calcularFechaEntregaMaxima(calendar.getTime());
+		calendar.add(Calendar.DAY_OF_MONTH, 17);
+		Date fechaEsperada = calendar.getTime();
+		//assert
+		assertTrue(fechaEsperada.getDate() == fechaEntregaMaxima.getDate());
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void calcularFechaEntregaMaxima2Test() {
+		
+		//arrange 
+		RepositorioPrestamo repositorioPrestamo = mock(RepositorioPrestamo.class);
+		RepositorioLibro repositorioLibro = mock(RepositorioLibro.class);
+		
+		Bibliotecario bibliotecario = new Bibliotecario(repositorioLibro, repositorioPrestamo);
 		Calendar calendar = Calendar.getInstance();
-		Date fechaEsperada;
-		if(calendar.get(Calendar.DAY_OF_WEEK)>1 && calendar.get(Calendar.DAY_OF_WEEK)<6) {
-			calendar.add(Calendar.DAY_OF_MONTH, 16);
-			fechaEsperada = calendar.getTime();
-		} else {
-			calendar.add(Calendar.DAY_OF_MONTH, 17);
-			fechaEsperada = calendar.getTime();
-		}
-
+		
+		//act
+		calendar.set(2018, 3, 2);
+		Date fechaEntregaMaxima = bibliotecario.calcularFechaEntregaMaxima(calendar.getTime());
+		calendar.add(Calendar.DAY_OF_MONTH, 16);
+		Date fechaEsperada = calendar.getTime();
 		//assert
 		assertTrue(fechaEsperada.getDate() == fechaEntregaMaxima.getDate());
 	}
