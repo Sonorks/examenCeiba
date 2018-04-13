@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dominio.unitaria.BibliotecarioTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-04-13T04:48:06" hostname="Sonorks" time="0.185">
+  <properties/>
+  <testcase name="sumaMasDe30" classname="dominio.unitaria.BibliotecarioTest" time="0.143"/>
+  <testcase name="esPalindromo" classname="dominio.unitaria.BibliotecarioTest" time="0.007"/>
+  <testcase name="esPrestadoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.026"/>
+  <testcase name="noSumaMasDe30" classname="dominio.unitaria.BibliotecarioTest" time="0.002"/>
+  <testcase name="noEsPalindromo" classname="dominio.unitaria.BibliotecarioTest" time="0.001"/>
+  <testcase name="libroNoPrestadoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
