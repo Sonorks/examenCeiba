@@ -28,18 +28,11 @@ public class Bibliotecario {
 		Libro prestado = repositorioPrestamo.obtenerLibroPrestadoPorIsbn(isbn);
 		Date fechaSolicitud = new Date();
 		Date fechaEntregaMaxima = null;
-		Calendar calendar = Calendar.getInstance();
-		int hoy = calendar.get(Calendar.DAY_OF_WEEK);
 		if(prestado==null) {
 			if(!esPalindromo(isbn)) {
 				libro = repositorioLibro.obtenerPorIsbn(isbn);
 				if(sumaMasDe30(isbn)) {
-					if(hoy > 1 && hoy < 6) {
-						calendar.add(Calendar.DAY_OF_MONTH, 16);
-					} else {
-						calendar.add(Calendar.DAY_OF_MONTH, 17);
-					}
-					fechaEntregaMaxima = calendar.getTime();
+					fechaEntregaMaxima = calcularFechaEntregaMaxima();;
 					nuevoPrestamo = new Prestamo(fechaSolicitud, libro, fechaEntregaMaxima, nombreUsuario);
 					repositorioPrestamo.agregar(nuevoPrestamo);
 				} else {
@@ -88,6 +81,17 @@ public class Bibliotecario {
 		} else {
 			return false;
 		}
+	}
+	
+	public Date calcularFechaEntregaMaxima() {
+		Calendar calendar = Calendar.getInstance();
+		int hoy = calendar.get(Calendar.DAY_OF_WEEK);
+		if(hoy > 1 && hoy < 6) {
+			calendar.add(Calendar.DAY_OF_MONTH, 16);
+		} else {
+			calendar.add(Calendar.DAY_OF_MONTH, 17);
+		}
+		return calendar.getTime();
 	}
 
 }

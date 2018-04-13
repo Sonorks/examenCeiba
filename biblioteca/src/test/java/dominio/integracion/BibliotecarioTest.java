@@ -84,7 +84,7 @@ public class BibliotecarioTest {
 	}
 	
 	@Test
-	public void prestarLibroPalindromo() {
+	public void prestarLibroPalindromoTest() {
 		
 		// arrange
 		Libro libro = new LibroTestDataBuilder().conIsbn(ISBN_PALINDROMO).build();

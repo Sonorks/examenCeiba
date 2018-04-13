@@ -5,6 +5,9 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.junit.Test;
 
 import dominio.Bibliotecario;
@@ -61,7 +64,7 @@ public class BibliotecarioTest {
 	}
 	
 	@Test
-	public void esPalindromo() {
+	public void esPalindromoTest() {
 		
 		//arrange
 		String isbn = "1021201";
@@ -80,7 +83,7 @@ public class BibliotecarioTest {
 	}
 	
 	@Test
-	public void noEsPalindromo() {
+	public void noEsPalindromoTest() {
 		
 		//arrange
 		String isbn = "101201";
@@ -99,7 +102,7 @@ public class BibliotecarioTest {
 	}
 	
 	@Test
-	public void sumaMasDe30() {
+	public void sumaMasDe30Test() {
 	
 		//arrange
 		String isbn = "9999";
@@ -117,7 +120,7 @@ public class BibliotecarioTest {
 	}
 	
 	@Test
-	public void noSumaMasDe30() {
+	public void noSumaMasDe30Test() {
 	
 		//arrange
 		String isbn = "999";
@@ -132,5 +135,31 @@ public class BibliotecarioTest {
 		
 		//assert
 		assertFalse(sumaMasDe30);
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void calcularFechaEntregaMaximaTest() {
+		
+		//arrange 
+		RepositorioPrestamo repositorioPrestamo = mock(RepositorioPrestamo.class);
+		RepositorioLibro repositorioLibro = mock(RepositorioLibro.class);
+		
+		Bibliotecario bibliotecario = new Bibliotecario(repositorioLibro, repositorioPrestamo);
+		
+		//act
+		Date fechaEntregaMaxima = bibliotecario.calcularFechaEntregaMaxima();
+		Calendar calendar = Calendar.getInstance();
+		Date fechaEsperada;
+		if(calendar.get(Calendar.DAY_OF_WEEK)>1 && calendar.get(Calendar.DAY_OF_WEEK)<6) {
+			calendar.add(Calendar.DAY_OF_MONTH, 16);
+			fechaEsperada = calendar.getTime();
+		} else {
+			calendar.add(Calendar.DAY_OF_MONTH, 17);
+			fechaEsperada = calendar.getTime();
+		}
+
+		//assert
+		assertTrue(fechaEsperada.getDate() == fechaEntregaMaxima.getDate());
 	}
 }

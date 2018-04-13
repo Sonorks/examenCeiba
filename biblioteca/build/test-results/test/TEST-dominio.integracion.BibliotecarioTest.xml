@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dominio.integracion.BibliotecarioTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-04-13T04:48:03" hostname="Sonorks" time="2.104">
+<testsuite name="dominio.integracion.BibliotecarioTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-04-13T14:31:22" hostname="Sonorks" time="2.166">
   <properties/>
-  <testcase name="prestarLibroNoDisponibleTest" classname="dominio.integracion.BibliotecarioTest" time="1.812"/>
-  <testcase name="prestarLibroMasDe30Test" classname="dominio.integracion.BibliotecarioTest" time="0.115"/>
-  <testcase name="prestarLibroPalindromo" classname="dominio.integracion.BibliotecarioTest" time="0.087"/>
-  <testcase name="prestarLibroTest" classname="dominio.integracion.BibliotecarioTest" time="0.09"/>
+  <testcase name="prestarLibroNoDisponibleTest" classname="dominio.integracion.BibliotecarioTest" time="1.802"/>
+  <testcase name="prestarLibroMasDe30Test" classname="dominio.integracion.BibliotecarioTest" time="0.145"/>
+  <testcase name="prestarLibroPalindromo" classname="dominio.integracion.BibliotecarioTest" time="0.104"/>
+  <testcase name="prestarLibroTest" classname="dominio.integracion.BibliotecarioTest" time="0.113"/>
   <system-out><![CDATA[Hibernate: drop table Libro if exists
 Hibernate: drop table Prestamo if exists
 Hibernate: drop sequence if exists hibernate_sequence
