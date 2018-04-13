@@ -115,6 +115,8 @@ public class BibliotecarioTest {
 		//act
 		
 		bibliotecario.prestar(libro.getIsbn(), NOMBRE_USUARIO);
+		
+		//assert
 		Assert.assertTrue(bibliotecario.esPrestado(libro.getIsbn()));
 		Assert.assertNotNull(repositorioPrestamo.obtenerLibroPrestadoPorIsbn(libro.getIsbn()));
 

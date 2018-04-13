@@ -49,15 +49,16 @@ public class Bibliotecario {
 
 	public boolean esPrestado(String isbn) {
 		Libro libro = repositorioPrestamo.obtenerLibroPrestadoPorIsbn(isbn);
-		if(libro == null) {
-			return false;
-		} else {
-			return true;
-		}
+		return (libro!=null);
 	}
 	
 	public boolean esPalindromo(String isbn) {
-		int n = isbn.length();
+		int n;
+		if(isbn != null) {
+			n = isbn.length();
+		} else {
+			return false;
+		}
 		for (int i = 0; i < (n/2); i++) {
 			if (isbn.charAt(i) != isbn.charAt(n -i -1)) {
 				return false;
@@ -67,22 +68,32 @@ public class Bibliotecario {
 	}
 	
 	public boolean sumaMasDe30(String isbn) {
-		int n = isbn.length();
+		int n;
 		int valorActual;
 		int sumatoria = 0;
-		for(int i = 0; i < n; i++) {
-			if(Character.isDigit(isbn.charAt(i))) {
-				valorActual = Character.getNumericValue(isbn.charAt(i));
-				sumatoria = sumatoria + valorActual;
-			}
-		}
-		if(sumatoria > 30) {
-			return true;
+		if(isbn != null) {
+			n = isbn.length();
 		} else {
 			return false;
 		}
+		for(int i = 0; i < n; i++) {
+			if(Character.isDigit(isbn.charAt(i))) {
+				valorActual = Character.getNumericValue(isbn.charAt(i));
+				sumatoria += valorActual;
+			}
+		}
+		return (sumatoria > 30);
 	}
 	
+	/**
+	 * Calcula la fecha de entrega máxima con el criterio de que si el prestamo se
+	 * realiza un Domingo, un viernes o un sábado el plazo es de 17 días calendario,
+	 * pero si el prestamo se hace un Lunes,Martes,Miercoles o Jueves el plazo que se
+	 * da es de 16 días calendario. Esto por la cantidad de domingos que abarca el tramo
+	 * de los 15 días hábiles.
+	 * @param fechaSolicitud
+	 * @return fechaEntregaMaxima
+	 */
 	public Date calcularFechaEntregaMaxima(Date fechaSolicitud) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(fechaSolicitud);

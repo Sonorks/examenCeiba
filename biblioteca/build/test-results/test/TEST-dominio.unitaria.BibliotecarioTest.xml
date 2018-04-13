@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dominio.unitaria.BibliotecarioTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-04-13T14:31:25" hostname="Sonorks" time="0.188">
+<testsuite name="dominio.unitaria.BibliotecarioTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-04-13T16:53:50" hostname="Sonorks" time="0.178">
   <properties/>
-  <testcase name="calcularFechaEntregaMaxima" classname="dominio.unitaria.BibliotecarioTest" time="0.164"/>
-  <testcase name="sumaMasDe30" classname="dominio.unitaria.BibliotecarioTest" time="0.001"/>
-  <testcase name="esPalindromo" classname="dominio.unitaria.BibliotecarioTest" time="0.002"/>
-  <testcase name="esPrestadoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.016"/>
-  <testcase name="noSumaMasDe30" classname="dominio.unitaria.BibliotecarioTest" time="0.0"/>
-  <testcase name="noEsPalindromo" classname="dominio.unitaria.BibliotecarioTest" time="0.0"/>
+  <testcase name="noEsPalindromoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.156"/>
+  <testcase name="esPrestadoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.015"/>
+  <testcase name="sumaMasDe30Test" classname="dominio.unitaria.BibliotecarioTest" time="0.0"/>
+  <testcase name="calcularFechaEntregaMaxima1Test" classname="dominio.unitaria.BibliotecarioTest" time="0.0"/>
+  <testcase name="calcularFechaEntregaMaxima2Test" classname="dominio.unitaria.BibliotecarioTest" time="0.001"/>
+  <testcase name="noSumaMasDe30Test" classname="dominio.unitaria.BibliotecarioTest" time="0.0"/>
   <testcase name="libroNoPrestadoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.001"/>
+  <testcase name="esPalindromoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
